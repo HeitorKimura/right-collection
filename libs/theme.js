@@ -4,7 +4,7 @@ import { mode } from "@chakra-ui/theme-tools"
 const styles = {
     global: props => ({
         body: {
-            bg: mode('#f0e7db', '#202023')(props)
+            bg: mode('#68d2d0', '#202023')(props)
         }
     })
 }
@@ -13,8 +13,21 @@ const components = {
     Heading: {
         variants: {
             'section-title': {
+                // textDecoration: 'underline',
+                fontSize: 30,
+                textUnderlineOffset: 6,
+                textDecorationColor: '#525252',
+                textDecorationThickness: 4,
+                marginTop: 3,
+                marginBottom: 4
+            }
+        }
+    },
+    Body: {
+        variants: {
+            'section-body': {
                 textDecoration: 'underline',
-                fontSize: 20,
+                fontSize: 15,
                 textUnderlineOffset: 6,
                 textDecorationColor: '#525252',
                 textDecorationThickness: 4,
@@ -32,7 +45,8 @@ const components = {
 }
 
 const fonts = {
-     heading: "M PLUS Rounded 1c"
+     heading: `'Heading Font Name', sans-serif`,
+     body: `'Body Font Name', sans-serif`
 }
 
 const colors = {

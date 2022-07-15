@@ -1,27 +1,43 @@
 import Head from 'next/head'
 import Navbar from '../navbar'
-import NoSsr from '../no-ssr'
-import { Box, Container } from '@chakra-ui/react'
-import _3dModel from '../3d-model'
+import { Box, ChakraProvider, Container, Heading, Image, useColorModeValue } from '@chakra-ui/react'
+import Fonts from '../fonts'
+import theme from '../../libs/theme'
 
-const Main = ({ children, router }) => {
+const Main = ({ children, router, props }) => {
     return (
-            <Box as ="main" pb={8}>
+        <ChakraProvider theme={theme}>
+            <Box as ="main" pb={8} bg={useColorModeValue(props)}>
                 <Head>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     
-                    <title>Heitor Kimura - Homepage</title>
+                    <title>The Right Collection</title>
                 </Head>
 
                 <Navbar path={router.asPath} />
-
+                <Fonts />
                 <Container maxW="container.md" pt={14}>
-                    <NoSsr>
-                        <_3dModel />
-                    </NoSsr>
+                <Box 
+                    flexShrink={0} 
+                    mt={{base: 4, md: 0}}
+                    ml={{md: 6}} 
+                    align="center"
+                    >
+                    <Heading fontSize='7vmin' mt='3vmin' mb='3vmin'>Welcome to</Heading>
+                    <Image  
+                        // borderColor="whiteAlpha.800" 
+                        // borderWidth={2} 
+                        // borderStyle="solid" 
+                        maxWidth="700px" 
+                        display="inline-block"  
+                        src="/images/Logo_TRC.svg" 
+                        alt="The Right Collection Logo"
+                        />
+                    </Box>
                     {children}
                 </Container>
             </Box>
+        </ChakraProvider>
     )
 }
 

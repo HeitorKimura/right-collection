@@ -18,19 +18,20 @@ const LogoBox = styled.span`
 `
 
 const Logo = () => {
-    const footPrintImg = `/images/footprint${useColorModeValue('', '-dark')}.png`
+    const footPrintImg = `/images/footprinttest.png`
 
     return (
         <Link href="/">
             <a>
                 <LogoBox>
-                    <Image src={footPrintImg} width={20} height={20} alt="logo" />
+                    <Image src={footPrintImg} width={30} height={30} alt="logo" />
                     <Text
                         color={useColorModeValue('gray.800', 'whiteAlpha.900')}
                         fontFamily='M PLUS Rounded 1c'
                         fontWeight="bold"
-                        ml={3}>
-                    Heitor Kimura
+                        ml={3}
+                        mt={2}>
+                    The Right Collection
                     </Text>
                 </LogoBox>
             </a>

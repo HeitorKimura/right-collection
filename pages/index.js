@@ -1,4 +1,4 @@
-import { Container, Box, Heading, Image, useColorModeValue, Link, Button, SimpleGrid, List, ListItem, Icon } from '@chakra-ui/react'
+import { Container, Box, Heading, Image, useColorModeValue, Link, Button, SimpleGrid, List, ListItem, Icon, Text, Stack, ChakraProvider } from '@chakra-ui/react'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import NextLink from 'next/link'
@@ -10,24 +10,19 @@ import {
     IoLogoTwitter,
     IoLogoInstagram,
     IoLogoGithub,
-    IoLogoDiscord
+    IoLogoDiscord,
 } from 'react-icons/io5'
 
-const Page = () => {
-    return (
-        <Layout>
-            <Container>
-                <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-                    Hello, I&apos;m a data scientist based in Brazil!
-                </Box>
+// export function getStaticProps({ locale }) {
+//     return {
+//         props: {
+//             locale: JSON.parse(JSON.stringify(locale))
+//         }
+//     }
+// }
 
-                <Box display={{ md:'flex' }}>
-                    <Box flexGrow={1}>
-                        <Heading as="h2" variant="page-title">
-                            Heitor Kimura
-                        </Heading>
-                        <p>Lifelong Learner for ( Data Science / Education / Music )</p>
-                    </Box>
+function roundImage(src_path) {
+    <Box display={{ md:'flex' }}>
                     <Box 
                         flexShrink={0} 
                         mt={{base: 4, md: 0}}
@@ -41,78 +36,126 @@ const Page = () => {
                             maxWidth="150px" 
                             display="inline-block" 
                             borderRadius="full" 
-                            src="/images/profile2.jpg" 
+                            src={src_path}
                             alt="Profile Image"
                         />
                     </Box>
                 </Box>
+}
+
+const Page = (components) => {
+    return (
+            <Container maxWidth='100vw' position='absolute' left={0}>
+                <Box borderRadius="none" bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.300')} w='100%' h='auto' align="center" marginTop='20px'>
+                    <Stack spacing='0px' direction='row' align='center' padding={4}>
+                        <Stack spacing={4} direction='column' width='30vw' paddingRight='0px'>
+                            <Heading textAlign='left' fontSize='350%' fontWeight='extrabold' ml='3vw'>It's nice to meet you :)</Heading>
+                            <Heading textAlign='center' fontSize='100%'>Don't get us wrong ;)</Heading>
+                        </Stack>
+                        <Box position='relative' left='10%' top='1vw'>
+                            <Text width='50vw' mt='0.7vw' textAlign='justify' mr='2px'>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
+                                accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                delenit augue duis dolore te feugait nulla facilisi.
+                            </Text>
+                        </Box>
+                    </Stack>
+                </Box>
+{/* 
+                <Box display={{ md:'flex' }}>
+                    <Box 
+                        flexShrink={0} 
+                        mt={{base: 4, md: 0}}
+                        ml={{md: 6}} 
+                        align="center"
+                        >
+                        <Image 
+                            borderColor="whiteAlpha.800" 
+                            borderWidth={2} 
+                            borderStyle="solid" 
+                            maxWidth="150px" 
+                            display="inline-block" 
+                            borderRadius="full" 
+                            src="/images/perfil.png" 
+                            alt="Profile Image"
+                        />
+                    </Box>
+                </Box> */}
                 <Section delay={0.1}>
-                    <Heading as="h3" variant="section-title">
-                        Work
+                    <Heading as="h2" variant="section-title" textAlign='center' fontSize='400%' color='whiteAlpha.900'>
+                        The right Team:
                     </Heading>
-                    <Paragraph>
-                        Data Scientist, Scout Chief, Musician and a long-life learner forever looking for new experiences. Currently exploring new ways of exchanging knowledge through writing/storytelling. Hope you enjoy!
-                        <br></br>
-                        <NextLink href="/works/gumroad">
-                            <Link>Gumroad</Link>
-                        </NextLink>
-                        .
-                    </Paragraph>
-                    <Box align="center" my={4}>
+                    <Heading as="h2" variant="section-title" textAlign='center' fontSize='150%' color='whiteAlpha.900'>
+                        Meet the gang
+                    </Heading>
+                    {/* <Box align="center" my={4}>
                         <NextLink href="/works">
                             <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
                                 My portfolio
                             </Button>
                         </NextLink>
-                    </Box>
+                    </Box> */}
                 </Section>
                 <Section delay={0.2}>
-                    <Heading as="h3" variant="section-title">
-                        Bio
-                    </Heading>
-                    <BioSection>
-                        <BioYear>1995</BioYear>
-                        Born in São Paulo, Brazil
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2014</BioYear>
-                        Accepted in University of São Paulo&apos;s Polytechnic School - Materials Engineering Course
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2019</BioYear>
-                    Received "Award of Excellence" from the National Institute for International Education (국립국제교육원), Republic of Korea, during the 2019 GKS for African and Latin American Undergraduate Students
-                    <br></br><br></br> 
-                    Achieved Materials Engineering Undergraduate Degree at University of São Paulo&apos;s Polytechnic School
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                    Discovered the wonders of Data Science and engaged in this area
-                    </BioSection>
-                </Section>
-                <Section delay={0.3}>
-                    <Heading as="h3" variant="section-title">
-                        When not working, you'll find me...
-                    </Heading>
-                    <Paragraph>
-                        - Singing and Playing Guitar
-                    </Paragraph>
-                </Section>
-                <Section delay={0.3}>
-                    <Heading as="h3" variant='section-title'>
-                        Social Links
-                    </Heading>
-                    <List>
-                        <ListItem>
-                            <Link href="https://twitter.com/heitor_kimura" target='_blank'>
-                                <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoTwitter}/>}>
-                                    @heitor_kimura
-                                </Button>
-                            </Link>
-                        </ListItem>
-                    </List>
+                    <Stack direction='row' spacing='15%'>
+                        <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}}>
+                            <Image 
+                                borderColor="whiteAlpha.800" 
+                                borderWidth={2} 
+                                borderStyle="solid" 
+                                maxWidth="150px" 
+                                display="inline-block" 
+                                borderRadius="full" 
+                                src="/images/footprint.png" 
+                                alt="Temp Image"
+                            />
+                        <Text fontSize='25px' fontFamily='Arial' fontWeight='extrabold' align='center' color='white'>
+                             Supletivo <br></br>
+                             Supletivo
+                        </Text>
+                        </Box>
+                        <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}}>
+                            <Image 
+                                borderColor="whiteAlpha.800" 
+                                borderWidth={2} 
+                                borderStyle="solid" 
+                                maxWidth="150px" 
+                                display="inline-block" 
+                                borderRadius="full" 
+                                src="/images/footprint.png" 
+                                alt="Temp Image"
+                            />
+                        </Box>
+                        <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}}>
+                            <Image 
+                                borderColor="whiteAlpha.800" 
+                                borderWidth={2} 
+                                borderStyle="solid" 
+                                maxWidth="150px" 
+                                display="inline-block" 
+                                borderRadius="full" 
+                                src="/images/footprint.png" 
+                                alt="Temp Image"
+                            />
+                        </Box>
+                        <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}}>
+                            <Image 
+                                borderColor="whiteAlpha.800" 
+                                borderWidth={2} 
+                                borderStyle="solid" 
+                                maxWidth="150px" 
+                                display="inline-block" 
+                                borderRadius="full" 
+                                src="/images/footprint.png" 
+                                alt="Temp Image"
+                            />
+                        </Box>
+                    </Stack>
                 </Section>
             </Container>
-        </Layout>
     )
 }
 

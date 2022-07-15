@@ -11,8 +11,9 @@ const LinkItem = ({ href, path, children }) => {
         <NextLink href={href}>
             <Link
                 p={2}
-                bg={active ? 'glassTeal' : undefined}
-                color={active ? '#202023' : inactiveColor}
+                borderRadius='md'
+                bg={active ? 'whiteAlpha.500' : undefined}
+                color={active ? 'gray200' : inactiveColor}
             >
                 {children}
             </Link>
@@ -28,7 +29,7 @@ const Navbar = props => {
             position="fixed"
             as="nav"
             w="100%"
-            bg={useColorModeValue('#ffffff40', '#20202380')}
+            bg={useColorModeValue('#ffffff40', 'whiteAlpha.200')}
             style={{backdropFilter:'blur(10px)'}}
             zIndex={1}
             {...props}
@@ -55,6 +56,9 @@ const Navbar = props => {
                 flexGrow={1}
                 mt={{ base: 4, nmd: 0 }}
             >
+                <LinkItem href="/" path={path}>
+                    About
+                </LinkItem>
                 <LinkItem href="/works" path={path}>
                     Works
                 </LinkItem>
@@ -82,9 +86,6 @@ const Navbar = props => {
                                 </NextLink>
                                 <NextLink href="/posts" passHref>
                                     <MenuItem as={Link}>Posts</MenuItem>
-                                </NextLink>
-                                <NextLink href="https://app.gumroad.com/heitorkimura" passHref>
-                                    <MenuItem as={Link}>My Gumroad</MenuItem>
                                 </NextLink>
                             </MenuList>
                         </Menu>
