@@ -37,43 +37,6 @@ const Main = ({ children, router, props }) => {
                 </Box>
                 {children}
             </Container>
-            <Box bg={useColorModeValue('whiteAlpha.800', 'whiteAlpha.300')}>
-            <Stack direction='row' spacing='5%' width='100vw' padding='2vw'>
-                    <Image
-                        borderColor="transparent"
-                        backgroundColor='#68d2d0' 
-                        borderWidth={2} 
-                        borderStyle="solid" 
-                        maxWidth="150px" 
-                        display="inline-block" 
-                        borderRadius="none" 
-                        src="../images/logo beanimals.svg" 
-                        alt="Beanimals"
-                    />
-                    <Image
-                        borderColor='transparent'
-                        backgroundColor={useColorModeValue(props)} 
-                        borderWidth={2} 
-                        borderStyle="solid" 
-                        maxBlockSize='150px' 
-                        display="inline-block" 
-                        borderRadius="none" 
-                        src="../images/povo_polvo_logo.png" 
-                        alt="Povo Polvo"
-                    />
-                    <Image
-                        borderColor='transparent'
-                        backgroundColor={useColorModeValue(props)} 
-                        borderWidth={2} 
-                        borderStyle="solid" 
-                        maxBlockSize='150px' 
-                        display="inline-block" 
-                        borderRadius="none" 
-                        src="../images/NFTgame_logo_quadrado.jpg" 
-                        alt="How Not to be a Hero"
-                    />
-                    </Stack>
-                </Box>
             </Box>
         </ChakraProvider>
     )
